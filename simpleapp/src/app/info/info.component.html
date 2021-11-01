@@ -1,0 +1,27 @@
+
+<p>Quantity: {{ quantity }}</p>
+<p>Selected Product: {{ selectedProduct }}</p>
+<p>Products: {{ products }}</p>
+<p>Name: {{ name }}</p>
+
+
+<br/> 
+<p>Welcome {{ name }} please place your order</p>
+<form (ngSubmit)="onSubmit()" #infoForm="ngForm"> 
+   <div class="form-group"> 
+      <label for="quantity">Quantity </label> 
+      <input type="text" class="form-control" id="quantity" required  [(ngModel)]="quantity" name="quantity"> 
+   </div> 
+ 
+   <div class="form-group"> 
+        <label for="products">Products</label> 
+        <select class="form-control" id="products" required  [(ngModel)]="selectedProduct" name="products" #selected="ngModel"> 
+           <option *ngFor="let product of products" [value]="product">{{product}}</option> 
+        </select> 
+   </div> 
+   <br>
+    <button type="submit" class="btn btn-success" >Buy</button> 
+    
+    <button type="button" class="btn btn-default" (click)="ngInfo()">Reset</button> 
+
+</form>
